@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Word Guess Game</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+
+<body>
+    <h1>
+        Word Guess Game
+    </h1>
+    <div>
+        Press any key to get started.
+    </div>
+    <div>Current Word: 
+        <span id="currentWord"> </span>
+    </div>
+    <div id="display"></div>
+    Guess a letter: <input type="text" />
+    <div id ="guessesLeft">Number of Guesses Remaining: </div>
+    <div id="letterGuess">Letters Already Guessed: </div>
+    <script type="text/javascript">
+
+        //Game starts
+
+        $(document).ready(function() {
+            console.log("Game has started")
+
+            // Variables
+
+            var letterGuess = "";
+            var guessesLeft = 10;
+            var letterGuess = 0;
+            var words = [
+            "aperture",
+            "camera",
+            "shutter",
+            "flash",
+            "iso"
+            ];
+
+            // This is the array in which individual characters in var words can be referrenced.
+
+            var wordSlot = [];
+
+            // This generates a random word.
+
+            var randomWord = words[Math.floor((Math.random() * words.length))];
+            console.log(randomWord);
+            
+            // Word that user has guessed so far.
+            // User's letter guess is printed to screen.
+
+            var userWordGuess = new Array(randomWord.length + 1).join( " " );
+                $("#currentWord").text(userWordGuess);
+
+            // User presses key to make guess.
+
+            // This is where a function would exist for Current Word
+            // that assigns user-inputs to specific spots in the HTML
+                // The function would referrence the specific word spaces where 
+                // user-input characters would populate from the array of 
+                // characters (wordSlot) within the randomWord--so that the
+                // characters in the random word populate in the order of which
+                // they appear in the word itself within the assigned spaces.
+                    // On keypress of a correct letter within a word, the function
+                    // would print the user guess in the correct space.
+
+            $("input").keypress(function(e){
+                $("#letterGuess").append(e.key);
+                for (var i=0; i < randomWord.length; i++) {
+                    if (e.key == randomWord[i]) {
+                        console.log(randomWord[i]);
+                        $("#currentWord").append(e.key);
+                    }
+
+            // This is where the function for Number of Guesses Remaining would exist.
+                // When a key is pressed, the printed value for guessesLeft would decrease
+                //      by 1, and continue to decrease until the user has made 10 guesses total.
+                // When the user has made 10 guesses, an alert will display that tells
+                //      the user that they have lost the game.
+                // The game will then reset.
+                // This where an if statement would exist to determine if the user still
+                //  has guesses left.
+                    // This is determined when userGuesses is reduced to 0 by
+                    //      an entry counter.
+                }
+            });
+
+            // This is where an if/else statement would wrap the remaining functions
+                // The parameters of the if statement would determine if the user has won the game.
+                    // If all user entries for #letterGuess = randomWord then a 
+                    //      "win" message will display as an alert prompt.
+                    // The game will then reset when the user clicks any option 
+                    //      from the alert prompt.
+                // The parameters of the else statement would determine if the user has
+                //      lost the game.
+                    // 
+            
+
+        })
+    </script>
+
+</body>

@@ -15,7 +15,7 @@
         Word Guess Game
     </h1>
     <div>
-        Press any key to get started.
+        Press any key within the "Guess a letter" form to get started.
     </div>
     <div>Current Word: 
         <span id="currentWord"> </span>
@@ -77,18 +77,27 @@
                     if (e.key == randomWord[i]) {
                         console.log(randomWord[i]);
                         $("#currentWord").append(e.key);
+                            // This function would only print letters once to currentWord.
+                            // If the word contains more than one of the same letter, it
+                            //      will print both letters in the approprate location.
+                            // The letters entered by the user will only be printed once.
                     }
 
             // This is where the function for Number of Guesses Remaining would exist.
                 // When a key is pressed, the printed value for guessesLeft would decrease
                 //      by 1, and continue to decrease until the user has made 10 guesses total.
-                // When the user has made 10 guesses, an alert will display that tells
-                //      the user that they have lost the game.
-                // The game will then reset.
+                // When userGuesses is = 0, an alert prompt displays that indicates that the 
+                    //      user has lost.
+                    // When the user loses, the game is reset upon the user clicking any button
+                    //      in the alert prompt.
                 // This where an if statement would exist to determine if the user still
                 //  has guesses left.
-                    // This is determined when userGuesses is reduced to 0 by
-                    //      an entry counter.
+                    // This is determined when userGuesses is still > 0.
+                    // When userGuesses is = 0, an alert prompt displays that indicates that the 
+                    //      user has lost.
+                    // When the user loses, the game is reset upon the user clicking any button
+                    //      in the alert prompt.
+
                 }
             });
 
@@ -100,8 +109,6 @@
                     //      from the alert prompt.
                 // The parameters of the else statement would determine if the user has
                 //      lost the game.
-                    // 
-            
 
         })
     </script>
